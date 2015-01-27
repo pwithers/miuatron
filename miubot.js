@@ -54,8 +54,7 @@ module.exports = function (req, res, next) {
       // send error message back to user if input is bad
        return res.status(200).send('No term found');
      }
-			}
-			else{
+			}else{
 			     if (outclasses.length==0){
 				 return("Nothing found!");
 				 }
