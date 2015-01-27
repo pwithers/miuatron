@@ -24,7 +24,7 @@ module.exports = function (req, res, next) {
 			var bodyJson = JSON.parse(body);
 			out = '*Team members* \n';
 			for (var j=0;j<bodyJson.length;j++){
-					out+= '*' + bodyJson[j].real_name + '*: '+bodyJson[j].profile.title"\n";
+					out+= '*' + bodyJson[j].real_name + '*: '+bodyJson[j].profile.title + "\n";
 			}
 			botPayload.text = out;
 			send(botPayload, function (error, status, body) {
