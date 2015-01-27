@@ -79,12 +79,12 @@ module.exports = function (req, res, next) {
 
 							var bodyIn = Buffer.concat(bodyChunksInner);
 							var ctc = JSON.parse(bodyIn);
-							out = "*"+ctc.program.name+" - "+ctc.className +"* /n";
-							out+= ctc.principal+ctc.principalCurrency + " in force from " + ctc.riskStartDate + " to " + ctc.riskEndDate + "/n";
+							out = "*"+ctc.program.name+" - "+ctc.className +"* \n";
+							out+= ctc.principal+ctc.principalCurrency + " in force from " + ctc.riskStartDate + " to " + ctc.riskEndDate + "\n";
 							for (var k = 0; k<ctc.perilRegions.length; k++){
-								out+= ctc.perilRegions[k].peril + ctc.perilRegions[k].region +"/n";
+								out+= ctc.perilRegions[k].peril + ctc.perilRegions[k].region +"\n";
 							}
-							out+= ctc.createdBy + " made it but " + ctc.approvedBy + " has their neck on the line /n";
+							out+= ctc.createdBy + " made it but " + ctc.approvedBy + " has their neck on the line \n";
 							//
 				   var error = false;
      if (!error) {
