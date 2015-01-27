@@ -58,8 +58,6 @@ function miu (term) {
 				for (var j=0;j<outclasses.length;j++){
 					out+= '*' + outclasses[j].id + '*: ' + outclasses[j].programName + ' - ' + outclasses[j].className + "; approved "+outclasses[j].approvedDate+"\n";
 				}
-				console.log(out);
-				return(out);
 					
 			}
 			else{
@@ -80,7 +78,6 @@ function miu (term) {
 
 							var bodyIn = Buffer.concat(bodyChunksInner);
 							var ctc = JSON.parse(bodyIn);
-							console.log(ctc);
 							out = "*"+ctc.program.name+" - "+ctc.className +"* /n";
 							out+= ctc.principal+ctc.principalCurrency + " in force from " + ctc.riskStartDate + " to " + ctc.riskEndDate + "/n";
 							for (var k = 0; k<ctc.perilRegions.length; k++){
@@ -88,8 +85,6 @@ function miu (term) {
 							}
 							out+= ctc.createdBy + " made it but " + ctc.approvedBy + " has their neck on the line /n";
 							
-							console.log(out);
-							return(out);
 					});
 		
 				});
