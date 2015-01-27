@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var miubot = require('./miubot');
-var miubot = require('./bossbot');
+var bossbot = require('./bossbot');
  
 var app = express();
 var port = process.env.PORT || 3000;
