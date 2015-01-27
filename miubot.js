@@ -15,7 +15,7 @@ module.exports = function (req, res, next) {
 	headers:{authorization:'874ef80d724b44dca70647f19eaf9e09'}
 };	
 	var out = '';
-	var req = http.get(options,function(res){
+	var req2 = http.get(options,function(res){
 		 var bodyChunks = [];
 		 
 		 res.on('data', function(chunk) {
@@ -114,7 +114,7 @@ module.exports = function (req, res, next) {
 		});
 	});
 	
-req.on('error', function(e) {
+req2.on('error', function(e) {
   console.log('ERROR: ' + e.message);
 });
 	
