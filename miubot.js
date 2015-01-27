@@ -15,10 +15,10 @@ module.exports = function (req, res, next) {
 	headers:{authorization:'874ef80d724b44dca70647f19eaf9e09'}
 };	
 	var out = '';
-	var req2 = http.get(options,function(res){
+	var req2 = http.get(options,function(res1){
 		 var bodyChunks = [];
 		 
-		 res.on('data', function(chunk) {
+		 res1.on('data', function(chunk) {
 				bodyChunks.push(chunk);
 		}).on('end', function() {
 			var body = Buffer.concat(bodyChunks);
