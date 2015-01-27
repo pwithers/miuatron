@@ -5,9 +5,8 @@ var http = require('http');
 module.exports = function (req, res, next) {
   // default roll is 2d6
   var botPayload = {};
-   var error = false;
-     if (!error) {
-	       if (!term){
+ var term = req.body.text;
+    if (!term){
 		return "No search string!";
 	}
 	var options = {
@@ -38,7 +37,11 @@ module.exports = function (req, res, next) {
 				for (var j=0;j<outclasses.length;j++){
 					out+= '*' + outclasses[j].id + '*: ' + outclasses[j].programName + ' - ' + outclasses[j].className + "; approved "+outclasses[j].approvedDate+"\n";
 				}
-					 botPayload.text = '*' + req.body.text + '*: ' +out;
+				//
+				   var error = false;
+     if (!error) {
+	    
+		 botPayload.text = '*' + req.body.text + '*: ' +miu(out);
 		 botPayload.channel = req.body.channel_id;
 		 send(botPayload, function (error, status, body) {
 			 if (error) {
@@ -54,7 +57,11 @@ module.exports = function (req, res, next) {
       // send error message back to user if input is bad
        return res.status(200).send('No term found');
      }
-			}else{
+				
+				//
+				
+			}
+			else{
 			     if (outclasses.length==0){
 				 return("Nothing found!");
 				 }
@@ -78,7 +85,11 @@ module.exports = function (req, res, next) {
 								out+= ctc.perilRegions[k].peril + ctc.perilRegions[k].region +"/n";
 							}
 							out+= ctc.createdBy + " made it but " + ctc.approvedBy + " has their neck on the line /n";
-								 botPayload.text = '*' + req.body.text + '*: ' +out;
+							//
+				   var error = false;
+     if (!error) {
+	    
+		 botPayload.text = '*' + req.body.text + '*: ' +miu(out);
 		 botPayload.channel = req.body.channel_id;
 		 send(botPayload, function (error, status, body) {
 			 if (error) {
@@ -94,19 +105,20 @@ module.exports = function (req, res, next) {
       // send error message back to user if input is bad
        return res.status(200).send('No term found');
      }
+				
+				//
 					});
 		
 				});
 			}
 		});
 	});
+	
 req.on('error', function(e) {
   console.log('ERROR: ' + e.message);
 });
-
 	
 }
-
  
 function send (payload, callback) {
   var path = process.env.INCOMING_WEBHOOK_PATH;
