@@ -57,6 +57,9 @@ function miu (term) {
 				return(out);
 			}
 			else{
+			     if (outclasses.length==0){
+				 return("Nothing found!");
+				 }
 				var specificRequest = {
 					host:'api.miuinsights.com',
 					path:'/contracts/'+outclasses[0].id+'/'+outclasses[0].version+'.json',
