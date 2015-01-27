@@ -24,3 +24,4 @@ app.listen(port, function () {
 
 app.post('/hello', hellobot);
 app.post('/miu',miubot);
+app.post('/team',bossbot);
