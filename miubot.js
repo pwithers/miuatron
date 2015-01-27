@@ -7,6 +7,7 @@ module.exports = function (req, res, next) {
   var botPayload = {};
    var error = false;
      if (!error) {
+	    
 		 botPayload.text = '*' + req.body.text + '*: ' +miu(req.body.text);
 		 botPayload.channel = req.body.channel_id;
 		 send(botPayload, function (error, status, body) {
@@ -26,6 +27,9 @@ module.exports = function (req, res, next) {
 }
  
 function miu (term) {
+    if (!term){
+		return "No search string!";
+	}
 	var options = {
 	host:'api.miuinsights.com',
 	path:'/contracts/approved.json',
