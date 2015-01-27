@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.x.x",
-    "express": "^4.11.1"
+    "express": "^4.11.1",
+    "request": "^2.51.0"
   }
 }
