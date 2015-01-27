@@ -41,7 +41,7 @@ module.exports = function (req, res, next) {
 				   var error = false;
      if (!error) {
 	    
-		 botPayload.text = '*' + req.body.text + '*: ' +miu(out);
+		 botPayload.text = '*' + req.body.text + '*: ' +out;
 		 botPayload.channel = req.body.channel_id;
 		 send(botPayload, function (error, status, body) {
 			 if (error) {
@@ -89,7 +89,7 @@ module.exports = function (req, res, next) {
 				   var error = false;
      if (!error) {
 	    
-		 botPayload.text = '*' + req.body.text + '*: ' +miu(out);
+		 botPayload.text = '*' + req.body.text + '*: ' +out;
 		 botPayload.channel = req.body.channel_id;
 		 send(botPayload, function (error, status, body) {
 			 if (error) {
