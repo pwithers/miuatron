@@ -30,7 +30,6 @@ function miu (term) {
     if (!term){
 		return "No search string!";
 	}
-	console.log("1");
 	var options = {
 	host:'api.miuinsights.com',
 	path:'/contracts/approved.json',
@@ -43,7 +42,6 @@ function miu (term) {
 		 res.on('data', function(chunk) {
 				bodyChunks.push(chunk);
 		}).on('end', function() {
-				console.log("2");
 			var body = Buffer.concat(bodyChunks);
 			var bodyJson = JSON.parse(body);
 			outclasses = [];
@@ -60,7 +58,7 @@ function miu (term) {
 				for (var j=0;j<outclasses.length;j++){
 					out+= '*' + outclasses[j].id + '*: ' + outclasses[j].programName + ' - ' + outclasses[j].className + "; approved "+outclasses[j].approvedDate+"\n";
 				}
-				console.log("3");
+				console.log(out);
 				return(out);
 					
 			}
