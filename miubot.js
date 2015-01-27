@@ -7,27 +7,7 @@ module.exports = function (req, res, next) {
   var botPayload = {};
    var error = false;
      if (!error) {
-	    
-		 botPayload.text = '*' + req.body.text + '*: ' +miu(req.body.text);
-		 botPayload.channel = req.body.channel_id;
-		 send(botPayload, function (error, status, body) {
-			 if (error) {
-				 return next(error);
-			 } else if (status !== 200) {
-			 // inform user that our Incoming WebHook failed
-			 return next(new Error('Incoming WebHook: ' + status + ' ' + body));
-			 } else {
-			 return res.status(200).end();
-			 }
-		 });
-     } else {
-      // send error message back to user if input is bad
-       return res.status(200).send('No term found');
-     }
-}
- 
-function miu (term) {
-    if (!term){
+	       if (!term){
 		return "No search string!";
 	}
 	var options = {
@@ -58,7 +38,22 @@ function miu (term) {
 				for (var j=0;j<outclasses.length;j++){
 					out+= '*' + outclasses[j].id + '*: ' + outclasses[j].programName + ' - ' + outclasses[j].className + "; approved "+outclasses[j].approvedDate+"\n";
 				}
-				console.log(out);
+					 botPayload.text = '*' + req.body.text + '*: ' +out;
+		 botPayload.channel = req.body.channel_id;
+		 send(botPayload, function (error, status, body) {
+			 if (error) {
+				 return next(error);
+			 } else if (status !== 200) {
+			 // inform user that our Incoming WebHook failed
+			 return next(new Error('Incoming WebHook: ' + status + ' ' + body));
+			 } else {
+			 return res.status(200).end();
+			 }
+		 });
+     } else {
+      // send error message back to user if input is bad
+       return res.status(200).send('No term found');
+     }
 			}
 			else{
 			     if (outclasses.length==0){
@@ -84,20 +79,35 @@ function miu (term) {
 								out+= ctc.perilRegions[k].peril + ctc.perilRegions[k].region +"/n";
 							}
 							out+= ctc.createdBy + " made it but " + ctc.approvedBy + " has their neck on the line /n";
-											console.log(out);
+								 botPayload.text = '*' + req.body.text + '*: ' +out;
+		 botPayload.channel = req.body.channel_id;
+		 send(botPayload, function (error, status, body) {
+			 if (error) {
+				 return next(error);
+			 } else if (status !== 200) {
+			 // inform user that our Incoming WebHook failed
+			 return next(new Error('Incoming WebHook: ' + status + ' ' + body));
+			 } else {
+			 return res.status(200).end();
+			 }
+		 });
+     } else {
+      // send error message back to user if input is bad
+       return res.status(200).send('No term found');
+     }
 					});
 		
 				});
 			}
 		});
 	});
-	console.log(out);
 req.on('error', function(e) {
   console.log('ERROR: ' + e.message);
 });
-	console.log(out);
-	return out;
+
+	
 }
+
  
 function send (payload, callback) {
   var path = process.env.INCOMING_WEBHOOK_PATH;
