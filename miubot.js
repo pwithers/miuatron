@@ -58,7 +58,7 @@ function miu (term) {
 				for (var j=0;j<outclasses.length;j++){
 					out+= '*' + outclasses[j].id + '*: ' + outclasses[j].programName + ' - ' + outclasses[j].className + "; approved "+outclasses[j].approvedDate+"\n";
 				}
-					
+				console.log(out);
 			}
 			else{
 			     if (outclasses.length==0){
@@ -84,18 +84,18 @@ function miu (term) {
 								out+= ctc.perilRegions[k].peril + ctc.perilRegions[k].region +"/n";
 							}
 							out+= ctc.createdBy + " made it but " + ctc.approvedBy + " has their neck on the line /n";
-							
+											console.log(out);
 					});
 		
 				});
 			}
 		});
 	});
-	
+	console.log(out);
 req.on('error', function(e) {
   console.log('ERROR: ' + e.message);
 });
-	
+	console.log(out);
 	return out;
 }
  
