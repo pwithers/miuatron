@@ -1,0 +1,15 @@
+{
+  "name": "miu-a-tron2000",
+  "version": "1.0.0",
+  "description": "Slackbot2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "O Withers",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.x.x",
+    "express": "^4.11.1"
+  }
+}
