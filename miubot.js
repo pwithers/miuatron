@@ -10,6 +10,7 @@ module.exports = function (req, res, next) {
 	    
 		 botPayload.text = '*' + req.body.text + '*: ' +miu(req.body.text);
 		 botPayload.channel = req.body.channel_id;
+		 console.log(botPayload.text);
 		 send(botPayload, function (error, status, body) {
 			 if (error) {
 				 return next(error);
