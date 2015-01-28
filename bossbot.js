@@ -8,13 +8,8 @@ module.exports = function (req, res, next) {
 	username:'autoboss'
   };
   // get team members 
-  var options = {
-	host:'slack.com/',
-	path:'api/users.list',
-	token:'xoxp-3143394713-3453358604-3533236840-f1d822'
-};	
-
-    var request = https.get(options,function(responseIn){
+    var request = https.get('https://slack.com/api/users.list?token=xoxp-3143394713-3453358604-3533236840-f1d822',
+		function(responseIn){
 		 var bodyChunks = [];
 		 
 		 responseIn.on('data', function(chunk) {
