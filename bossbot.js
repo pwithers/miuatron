@@ -17,6 +17,7 @@ module.exports = function (req, res, next) {
 		}).on('end', function() {
 			var body = Buffer.concat(bodyChunks);
 			var bodyJson = JSON.parse(body);
+			console.log(bodyJson);
 			out = '*Team members* \n';
 			for (var j=0;j<bodyJson.length;j++){
 					out+= '*' + bodyJson[j].real_name + '*: '+bodyJson[j].profile.title + "\n";
