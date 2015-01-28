@@ -9,11 +9,11 @@ module.exports = function (req, res, next) {
   };
   // get team members 
   var options = {
-	host:'https://slack.com/',
+	host:'slack.com/',
 	path:'api/users.list?token=xoxp-3143394713-3453358604-3533236840-f1d822',
 };	
 
-    var request = http.get(options,function(responseIn){
+    var request = https.get(options,function(responseIn){
 		 var bodyChunks = [];
 		 
 		 responseIn.on('data', function(chunk) {
