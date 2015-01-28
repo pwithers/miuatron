@@ -38,8 +38,12 @@ module.exports = function (req, res, next) {
 			 }
 		 });
 		});
-  
+		
 		});
+			
+request.on('error', function(e) {
+  console.log('ERROR: ' + e.message);
+});
 }
 
 function send (payload, callback) {
